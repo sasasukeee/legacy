@@ -1147,9 +1147,6 @@ let Settings = {
 		o: .5,
 		e: false
 	},
-    ddos: {
-        on: !1
-    },
 	Hitbox: false,
 	Debug: false,
 	Xray: {
@@ -2835,7 +2832,7 @@ window.Utils = {
         gui.Register([{
 			type: "checkbox",
 			label: "DDoS",
-			object: Settings.ddos,
+			object: ddos,
 			property: "on",
 			onChange: data => {
 				if (!0 === data) {
@@ -2846,8 +2843,8 @@ window.Utils = {
 				Utils.saveSettings();
 			}
 		}], {
-            folder: "DDOS" //endddd 
-        });
+            folder: "DDOS" //endddd
+        })
 	},
 	controls: null,
 	controller: class {
@@ -5573,7 +5570,7 @@ function K(a, e, t, d, c) {
 	}
 	return a
 }
-let Int;
+let int, ddos;
 function DDoS() {
 	Int = setInterval((() => {
 		let i = 5e4;
@@ -5583,6 +5580,9 @@ function DDoS() {
 
 function StopDDoS() {
 	clearInterval(Int)
+}
+ddos = {
+	on: !1
 }
 function zh(a, e) {
 	var t = document.createElement("canvas"),
